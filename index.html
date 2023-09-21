@@ -11,21 +11,22 @@
         <h2>Namaste World</h2> -->
     </div>
 
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
     <script>
-        const container = document.querySelector('.container');
-        const headingContainer = document.createElement('div');
-        headingContainer.classList.add("headingContainer");
+        const container = ReactDOM.createRoot(document.querySelector('.container')); //getting the Root Element ie Container in the DOM
+        
+        const head1 = React.createElement('h1', { 
+            style: {color:"red"},
+            id: "heading1"
+        }, "Namaste React"); 
+        const head2 = React.createElement('h2', {}, "Namaste React");
+        
+        const headingContainer = React.createElement('div', {className: 'headingContainer'}, [head1, head2]); //Appending the Root Element with both headings 
 
-        const head1 = document.createElement('h1');
-        const head2 = document.createElement('h2');
 
-        head1.textContent = "Namaste React";
-        head2.textContent = "Namaste World";
-
-        headingContainer.appendChild(head1);
-        headingContainer.appendChild(head2);
-        container.appendChild(headingContainer);
-
+        container.render(headingContainer); // to update the DOM structure
 
     </script>
 </body>
