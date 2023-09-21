@@ -7,8 +7,26 @@
 </head>
 <body>
     <div class="container">
-        <h1>Namaste React</h1>
-        <h2>Namaste World</h2>
+        <!-- <h1>Namaste React</h1>
+        <h2>Namaste World</h2> -->
     </div>
+
+    <script>
+        const container = document.querySelector('.container');
+        const headingContainer = document.createElement('div');
+        headingContainer.classList.add("headingContainer");
+
+        const head1 = document.createElement('h1');
+        const head2 = document.createElement('h2');
+
+        head1.textContent = "Namaste React";
+        head2.textContent = "Namaste World";
+
+        headingContainer.appendChild(head1);
+        headingContainer.appendChild(head2);
+        container.appendChild(headingContainer);
+
+
+    </script>
 </body>
 </html>
