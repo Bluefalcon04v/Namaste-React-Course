@@ -1,28 +1,91 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-const heads = (
-    <h1 id='heading' key="heading" style={{color:"red",fontFamily:"cursive"}}> Namaste heads </h1>
-);
+/* 
+todo Header
+*       - Logo
+*       - List
+*       - Cart
+todo body
+*       - Banner Image
+            - Heading 
+            - Decription
+*       - About US Overview
+            - Description
+            - Readme button
+*       - Our Product
+            - product cards
+                - Image 
+                - Name 
+*       - Testimonials
+            - Image
+            - Name
+            - Country
+            - Message
+            - Ratings
+*       - Blogs Overview
+            - Blog Cards
+                - Images
+                - Title
+                - Description
+                - Readme button
+*       - Contact Form
+todo footer 
+*   - Links 
+*/
 
-const Heads2 = () =>(
-    <h2>Namaste heads2</h2>
+
+    // ---------------------------------------------------------------- Header
+    const Title = () =>(
+         <a href='/'>
+            <img className='logo' src="https://i.pinimg.com/originals/f2/9f/d9/f29fd9265cad42047ecc32ae11826d4a.png" alt='Logo'/>
+         </a>
     )
-    
-    
-    const HeadingComponent = () =>( // Creating a functional component
-    <div>
-        <h1> Namaste Mom</h1>
-        {heads}        {/* Calling for the "heads" element in the functional components */}
+
+    const Header = () =>( 
+        <>
+        <div className='listContainer'>
+        <Title/>
+            <ul>
+                <li>About</li>
+                <li>Shop</li>
+                <li>Blogs</li>
+                <li>Contact</li>
+            </ul>
+        </div>
+
+        </>
+    )
 
 
-        {Heads2()}        {/* Calling for the "heads2" Functional Components in the another functional component also known as component composition*/}
-        {/* OR */}
-        <Heads2/>        {/* Calling for the "heads2" Functional Components in the another functional component also known as component composition */}
-        {console.log("Hello")} {/*We can also run JS in functional components */}
-    </div>
-)
+    // ---------------------------------------------------------------- Body
+    const Body = () =>( 
+        <>
+        <h1>
+
+        Body
+        </h1>
+        </>
+    )
+    // ---------------------------------------------------------------- Footer
+    const Footer = () =>( 
+        <>
+        <h1>
+
+        Footer
+        </h1>
+        </>
+    )
+
+    const AppComponent = () =>(
+        <>
+            <Header/>
+            <Body/>
+            <Footer/>
+        </>
+    )
+
 
 const root = ReactDOM.createRoot(document.querySelector('#root')); 
 
-root.render(<HeadingComponent/>); //calling the function components
+root.render(<AppComponent/>); 

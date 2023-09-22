@@ -7,3 +7,31 @@
 body{
     background-color: rgb(253, 247, 238);
 }
+
+
+/* ----------------------------------------------------Header */
+.logo{
+    background-color: rgb(230, 84, 84);
+    width: 80px;
+}
+
+.listContainer{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(228, 209, 246);
+    padding: 20px;
+}
+
+.listContainer > ul {
+    display: flex;
+    align-items: center;
+}
+
+.listContainer > ul > li{
+    list-style: none;
+    padding: 10px;
+}
+
+/* ----------------------------------------------------Body */
+
+/* ----------------------------------------------------Footer */
