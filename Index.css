@@ -45,6 +45,10 @@ body{
     width: 100%;
 }
 
+.resturantList{
+    display: flex;
+    flex-wrap: wrap;
+}
 
 
 /* ----------------------------------------------------Footer */
