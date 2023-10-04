@@ -11,15 +11,14 @@ body{
 
 /* ----------------------------------------------------Header */
 .logo{
-    background-color: rgb(230, 84, 84);
-    width: 80px;
+    width: 120px;
 }
 
 .listContainer{
     display: flex;
     justify-content: space-between;
-    background-color: rgb(228, 209, 246);
-    padding: 20px;
+    background-color: white;
+    padding: 0 20px;
 }
 
 .listContainer > ul {
@@ -29,9 +28,23 @@ body{
 
 .listContainer > ul > li{
     list-style: none;
-    padding: 10px;
+    padding: 5px;
+    cursor: pointer;
+    margin: 10px;
 }
 
 /* ----------------------------------------------------Body */
+.card{
+    border: 2px solid black;
+    margin: 10px;
+    padding: 10px;
+    width: 200px;
+}
+
+.card img{
+    width: 100%;
+}
+
+
 
 /* ----------------------------------------------------Footer */
