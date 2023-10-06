@@ -62,7 +62,7 @@ const Header = () => (
 
 // ---------------------------------------------------------------- Body
 
-const resturantList = [
+const resturantListData = [
   {
     info: {
       id: "253726",
@@ -1758,36 +1758,33 @@ const resturantList = [
   },
 ];
 
-const ResturantCard = () => {
+// recieving the passed arguments as props 
+const ResturantCard = (props) => {
   return (
     <div className="card">
       <img
         src={
           "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-          resturantList[1].info.cloudinaryImageId
+          props.resturant.info.cloudinaryImageId
         }
         alt=""
       />
-        <h2>{resturantList[1].info.name}</h2>
-        <h4>{resturantList[1].info.cuisines.join(",  ")}</h4>
-        <h5>{resturantList[1].info.avgRating} Stars</h5>
+        <h2>{props.resturant.info.name}</h2>
+        <h4>{props.resturant.info.cuisines.join(", ")}</h4>
+        <h5>{props.resturant.info.avgRating} Stars</h5>
       </div>
   );
 };
 
 const Body = () => (
   <div className="resturantList">
-    <ResturantCard />
-    <ResturantCard />
-    <ResturantCard />
-    <ResturantCard />
-    <ResturantCard />
-    <ResturantCard />
-    <ResturantCard />
-    <ResturantCard />
-    <ResturantCard />
-    <ResturantCard />
-    <ResturantCard />
+     {/*  "resturant = {resturantListData[0]}"  is passing a data in the components is known as props ie in functional component is known as the arguments */}
+    <ResturantCard  resturant = {resturantListData[0]}/>  
+    <ResturantCard resturant = {resturantListData[1]}/>
+    <ResturantCard resturant = {resturantListData[2]}/>
+    <ResturantCard resturant = {resturantListData[3]}/>
+    <ResturantCard resturant = {resturantListData[4]}/>
+    <ResturantCard resturant = {resturantListData[5]}/>
   </div>
 );
 // ---------------------------------------------------------------- Footer
