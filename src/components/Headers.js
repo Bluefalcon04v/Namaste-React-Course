@@ -1,4 +1,4 @@
-const Title = () => (
+export const Title = () => ( // Naming export
     <a href="/">
       <img
         className="logo"
@@ -8,7 +8,7 @@ const Title = () => (
     </a>
   );
   
-  const Header = () => (
+export const Header = () => (
     <>
       <div className="listContainer">
         <Title />
@@ -23,5 +23,3 @@ const Title = () => (
     </>
   );
 
-
-export default Header;  // exporting as default

@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Header from "./src/components/Headers"; // importing from default we can change the name also like xyzHeader
+import { Title, Header} from "./src/components/Headers"; // importing from naming export we can't change the name 
 
 /* 
 todo Header
