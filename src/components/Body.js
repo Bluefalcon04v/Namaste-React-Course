@@ -1,4 +1,4 @@
-import { resturantListData } from "./config";
+import { resturantListData } from "../config";
 import ResturantCard from "./ResturantCard"
 
 const Body = () => (

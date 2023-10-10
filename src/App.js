@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Header from "./src/components/Headers"; 
-import Footer from "./src/components/Footer";
-import Body from "./src/components/Body";
+import Header from "./components/Headers"; 
+import Footer from "./components/Footer";
+import Body from "./components/Body";
 
 /* 
 todo Header
