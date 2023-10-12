@@ -2,24 +2,41 @@ import { resturantListData } from "../config";
 import ResturantCard from "./ResturantCard";
 import { useState } from "react";
 
-//  Every Hooks in react is just a like a preDefined functions 
-// useState takes two arrays and first value is for decleration and second value is for assigning new value to it
-const Body = () => {
-  const [searchText, setSearchText] = useState(); // React uses two way data binding one for getting and other one is for providing it back 
-  return (
-  <>
-    <div className="searchBarContainer">
-      <input type="text" className="searchInput" placeholder="Search" value={searchText} onChange={(e) => {setSearchText(e.target.value)}}></input> {/* e.target.value takes the input provided inside the input tag */}
-      <button className="searchButton" >Search</button>
-      {console.log(searchText)}
-    </div>
 
-    <div className="resturantList">
-      {resturantListData.map((value) => {
-        return <ResturantCard {...value.info} key={value.info.id} />;
-      })}
-    </div>
-  </>
+function filterData(searchText, resturants) {
+ const filterValue = resturants.filter((value) => 
+  value.info.name.includes(searchText)
+ )
+ return filterValue;
+}
+
+
+const Body = () => {
+  const [resturants, setResturants] = useState(resturantListData)
+
+  const [searchText, setSearchText] = useState();
+  return (
+    <>
+      <div className="searchBarContainer">
+        <input type="text" className="searchInput" 
+        placeholder="Search"
+        value={searchText || ""} 
+        onChange={(e) => { setSearchText(e.target.value) }}></input> 
+        <button className="searchButton" onClick={() => {
+          const data = filterData(searchText, resturants); 
+          setResturants(data)
+          console.log(data.length);
+
+        }
+        } >Search</button>
+      </div >
+
+      <div className="resturantList">
+        {resturants.map((value) => {
+          return <ResturantCard {...value.info} key={value.info.id} />;
+        })}
+      </div>
+    </>
   )
 };
 
