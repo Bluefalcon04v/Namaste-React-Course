@@ -4,39 +4,37 @@ import { useEffect, useState } from "react";
 
 
 function filterData(searchText, resturants) {
- const filterValue = resturants.filter((value) => 
-  value.info.name.includes(searchText)
- )
- return filterValue;
+  const filterValue = resturants.filter((value) =>
+    value.info.name.includes(searchText)
+  )
+  return filterValue;
 }
 
 
 
 const Body = () => {
-  const [resturants, setResturants] = useState(resturantListData)
+  const [resturants, setResturants] = useState([])
   const [searchText, setSearchText] = useState();
 
-  useEffect(()=>{
+  useEffect(() => {
     getResturantListData();
-  }, []);
+  }, []); // when it will load it will call the the method inside it only once
 
-  async function getResturantListData(){
+  async function getResturantListData() { // feching the APIs
     const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6286706&lng=77.36402570000001&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
-    const json = await data.json();
-    console.log(json);
-    // setResturants(json?.data?.cards)
+    const JSON = await data.json();
+    setResturants(JSON?.data?.cards[2].card.card.gridElements.infoWithStyle.restaurants);  // Settin up the data 
   }
-
 
   return (
     <>
       <div className="searchBarContainer">
-        <input type="text" className="searchInput" 
-        placeholder="Search"
-        value={searchText || ""} 
-        onChange={(e) => { setSearchText(e.target.value) }}></input> 
+        <input type="text" className="searchInput"
+          placeholder="Search"
+          value={searchText || ""}
+          onChange={(e) => { setSearchText(e.target.value) }}></input>
         <button className="searchButton" onClick={() => {
-          const data = filterData(searchText, resturants); 
+          const data = filterData(searchText, resturants);
           setResturants(data)
         }
         } >Search</button>
@@ -44,7 +42,6 @@ const Body = () => {
 
       <div className="resturantList">
         {resturants.map((value) => {
-          // console.log(value.info)
           return <ResturantCard {...value.info} key={value.info.id} />;
         })}
       </div>
