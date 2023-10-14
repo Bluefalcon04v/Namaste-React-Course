@@ -21,7 +21,6 @@ const Body = () => {
   async function getResturantListData() {
     const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6286706&lng=77.36402570000001&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
     const JSON = await data.json();
-    //setting up allResturants and filteredResturants so that it will populate initial data on UI 
     setAllResturants(JSON?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     setFilteredResturants(JSON?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants); 
   }
@@ -29,10 +28,9 @@ const Body = () => {
 
   if (!allResturants) return null;
 
-  if(filteredResturants?.length === 0)
-    return <h1>No Resturant matches your filter!</h1>
+  // if(filteredResturants?.length === 0)
+  //   return <h1>No Resturant matches your filter!</h1>
 
-    // Conditional rendering 
   return (allResturants?.length === 0) ? (<Shimmer_UI />) : (
     <>
       <div className="searchBarContainer">

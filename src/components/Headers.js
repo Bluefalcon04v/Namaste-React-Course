@@ -23,10 +23,8 @@ const Header = () => {
         <li>Blogs</li>
         <li>Contact</li>
         <li>Cart</li>
-      </ul>
+      </ul> 
       {islogedIn ? <button onClick={()=> setIsLogedIn(false) }>Logout</button> : <button onClick={()=> setIsLogedIn(true)}>Login</button>}
-      {/* <button>Login</button>
-      <button>Logout</button> */}
     </div>
   )
 };

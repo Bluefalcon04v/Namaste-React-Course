@@ -1,7 +1,18 @@
-const Shimmer_UI = () =>{
-    return(
+const Shimmer_UI = () => {
+    return (
         <>
-            <h1>Loading.............</h1>
+            <div className="resturantList">
+                {Array(20).fill('')
+                    .map((e, index) => (
+                        <div className="shimmerCard">
+                            <div className="shimmerImage"></div>
+                            <div className="shimmerParaContainer">
+                                <p className="shimmerPara"></p>
+                                <p className="shimmerPara"></p>
+                            </div>
+                        </div>))
+                }
+            </div>
         </>
     )
 }
