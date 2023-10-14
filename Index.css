@@ -33,6 +33,11 @@ body{
     margin: 10px;
 }
 
+.listContainer a{
+    color: black;
+    text-decoration-line: none;
+}
+
 /* ----------------------------------------------------Body */
 .card{
     border: 2px solid black;

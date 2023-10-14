@@ -4,7 +4,7 @@ const Shimmer_UI = () => {
             <div className="resturantList">
                 {Array(20).fill('')
                     .map((e, index) => (
-                        <div className="shimmerCard">
+                        <div className="shimmerCard" key={index}>
                             <div className="shimmerImage"></div>
                             <div className="shimmerParaContainer">
                                 <p className="shimmerPara"></p>

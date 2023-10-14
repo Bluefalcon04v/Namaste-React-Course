@@ -25,11 +25,7 @@ const Body = () => {
     setFilteredResturants(JSON?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants); 
   }
 
-
   if (!allResturants) return null;
-
-  // if(filteredResturants?.length === 0)
-  //   return <h1>No Resturant matches your filter!</h1>
 
   return (allResturants?.length === 0) ? (<Shimmer_UI />) : (
     <>
