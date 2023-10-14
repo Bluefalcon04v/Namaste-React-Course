@@ -21,25 +21,27 @@ const Body = () => {
   async function getResturantListData() {
     const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6286706&lng=77.36402570000001&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
     const JSON = await data.json();
-    setAllResturants(JSON?.data?.cards[2].card.card.gridElements.infoWithStyle.restaurants);
+    //setting up allResturants and filteredResturants so that it will populate initial data on UI 
+    setAllResturants(JSON?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setFilteredResturants(JSON?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants); 
   }
 
 
   if (!allResturants) return null;
 
-  // if(filteredResturants?.length === 0)
-  //   return <h1>No Resturant matches your filter!</h1>
+  if(filteredResturants?.length === 0)
+    return <h1>No Resturant matches your filter!</h1>
 
-  return allResturants?.length === 0 ? (<Shimmer_UI />) : (
+    // Conditional rendering 
+  return (allResturants?.length === 0) ? (<Shimmer_UI />) : (
     <>
-      {console.log("render")}
       <div className="searchBarContainer">
         <input type="text" className="searchInput"
           placeholder="Search"
           value={searchText || ""}
           onChange={(e) => { setSearchText(e.target.value) }}></input>
         <button className="searchButton" onClick={() => {
-          const data = filterData(searchText, allResturants);
+          const data = filterData(searchText, allResturants); 
           setFilteredResturants(data)
         }
         } >Search</button>
