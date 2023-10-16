@@ -7,11 +7,11 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
+import ResturantMenu from "./components/ResturantMenu";
 
 const AppComponent = () => (
   <>
     <Header />
-    {/* Outlet Component will be used for the mounting the change of the route */}
     <Outlet /> 
     <Footer />
   </>
@@ -22,7 +22,6 @@ const appRouter = createBrowserRouter([
     path: "/",
     element: <AppComponent />,
     errorElement: <Error />,
-    // children will be mounted on the Outlet position these are the Nested Routing
     children: [
       {
         path: "/",
@@ -35,6 +34,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />
+      },
+      {
+        path: "/resturant/:resid",
+        element: <ResturantMenu />
       }
     ],
   }])
