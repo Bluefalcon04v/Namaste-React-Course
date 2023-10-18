@@ -15,23 +15,24 @@ const ResturantMenu = () => {
     async function getResturantInfo() {
         const data = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.6286706&lng=77.36402570000001&restaurantId=51293&catalog_qa=undefined&submitAction=ENTER")
         const json = await data.json()
-        console.log(json.data)
         setResturant(json.data?.cards[0]?.card?.card?.info)
+        setResturantMenu(json.data?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR.cards)
+        console.log(json.data?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR.cards.map((res)=>{
+            console.log(res?.card?.card?.itemCards);
+        }))
     }
 
     return (
         <>
             <div>
                 <img src={IMG_CDN_URL + resturant?.cloudinaryImageId}></img>
-                {/* {console.log(resturant)} */}
-                {console.log(resturant[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards)}
-                {/* {(resturant[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.map((value) => {
-                    // console.log(value?.card?.card?.title)
-                    ( value?.card?.card?.title)
+                {/* {resturantMenu.map((res)=>{
+                    console.log(res)
                 })
-                )} */}
+                } */}
                 <h1>{resturant.name}</h1>
-                <h2>{resturant.city}</h2>
+                <h3>{resturant.areaName}</h3>
+                <h3>{resturant.city}</h3>
                 <h3>{resturant.costForTwoMessage}</h3>
                 <h4>{resturant.totalRatingsString}</h4>
                 <h1>Resturant id :{resid}</h1>
