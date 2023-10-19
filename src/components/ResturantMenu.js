@@ -17,12 +17,19 @@ const ResturantMenu = () => {
         const data = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.6286706&lng=77.36402570000001&restaurantId=51293&catalog_qa=undefined&submitAction=ENTER")
         const json = await data.json()
         setResturant(json?.data?.cards[0]?.card?.card?.info)
-        json?.data?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.map((res) => {
+        // json?.data?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.map((res) => {
+        //     res?.card?.card?.itemCards?.map((val) => {
+        //         setResturantMenuItems(val?.card)
+        //         // setResturantMenuItems(val)
+        //         console.log(val.card);
+        //     })
+        //     // console.log(resturantMenuItems)
+        // })
+        setResturantMenuItems(json?.data?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.map((res) => {
             res?.card?.card?.itemCards?.map((val) => {
-                setResturantMenuItems(val?.card)
-                // setResturantMenuItems(val)
+                val?.card
             })
-        })
+        }))
     }
 
 
@@ -40,12 +47,13 @@ const ResturantMenu = () => {
             {/* <div className="resturantMenuItems" key={resturantMenuItems?.info?.id}> */}
             <div className="resturantMenuItems">
 
-                <ResturantItems {...resturantMenuItems?.info} key={resturantMenuItems?.info?.id}/>
-                {/* {
+                {/* <ResturantItems {...resturantMenuItems?.info} key={resturantMenuItems?.info?.id}/> */}
+                {
                     resturantMenuItems.map((value)=>{
-                        return <ResturantItems {...value.card.info} key={value.card.info.id}/> 
+                        return  <ResturantItems {...value?.info} key={value?.info?.id}/> 
                     })
-                } */}
+
+                }
             </div>
         </>
     )

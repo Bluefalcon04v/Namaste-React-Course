@@ -88,4 +88,22 @@ body{
 }
 
 
+/* +++++++++ MENU ITEMS +++++++++ */
+.menuItems{
+    width:400px;
+    border: 2px solid black;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.menuItems Img{
+    display: flex;
+    align-items: center;
+    height: 240px;
+    margin: 15px;
+}
+
+
 /* ----------------------------------------------------Footer */
