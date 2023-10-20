@@ -43,7 +43,7 @@ const Body = () => {
 
       <div className="resturantList">
         {filteredResturants.map((value) => {
-          return (<ResturantCard {...value.info} key={value.info.id} />);
+          return <ResturantCard {...value.info} key={value.info.id} />
         })}
       </div>
     </>
