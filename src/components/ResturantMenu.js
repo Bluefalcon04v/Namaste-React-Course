@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { IMG_CDN_URL } from "../config";
 import ResturantItems from "./ResturantItems";
+import Shimmer_UI from "./Shimmer_UI";
 
 const ResturantMenu = () => {
   const [resturant, setResturant] = useState([]);
@@ -14,6 +15,7 @@ const ResturantMenu = () => {
     getResturantInfo();
   }, []);
 
+  // we are calling two use state in one fuction that swhy its giving the error, to fix either call one obj and update both of them 
   async function getResturantInfo() {
     try {
       const data = await fetch(
@@ -34,7 +36,7 @@ const ResturantMenu = () => {
       setLoading(false);
     } catch (error) {
       console.log("Fetching Error: ", error);
-      setLoading(false);
+      setLoading(true);
     }
   }
 
@@ -54,14 +56,14 @@ const ResturantMenu = () => {
       </div>
       <div className="resturantMenuItemsContainer">
         {loading ? (
-          <p>Loading...</p>
+          <Shimmer_UI/>
         ) : (
           resturantMenuItems.map((item, index) =>  {
             return (<ResturantItems {...item} key={item?.id && index} />)
           })
             )}
       </div>
-            {resturantMenuItems.map((item) => console.log(item))}
+          {resturantMenuItems.map((item) => console.log(item))}
     </div>
     </>
   );
