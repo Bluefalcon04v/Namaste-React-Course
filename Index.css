@@ -89,9 +89,52 @@ body{
 
 
 /* +++++++++ MENU ITEMS +++++++++ */
+.itemImageInBg{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: -10;
+    top: 0;
+    position: fixed;
+    filter: blur(2px) saturate(2) contrast(130%);
+}
+
+.resturantMenuMainContainer{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.resturantMainDetailContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    /* width: 800px; */
+    background-color: rgba(255, 255, 255, 0.281);
+    border-radius: 20px;
+}
+
+.resturantMainDetailContainer img{
+    width:400px;
+    border-radius: 20px;
+    border: 2px solid black;
+    margin-right: 20px;
+}
+
+.resturantMenuItemsContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .menuItems{
     width:400px;
     border: 2px solid black;
+    background: rgba(255, 255, 255, 0.795);
+    border-radius: 10px;
     display:flex;
     justify-content: center;
     flex-direction: column;
@@ -103,6 +146,14 @@ body{
     align-items: center;
     height: 240px;
     margin: 15px;
+    border-radius: 12px;
+    filter: drop-shadow(8px 8px 10px rgb(187, 187, 187));
+    position: relative;
+    top: 0px;
+}
+
+.menuItemsContent{
+    padding: 0px 15px 15px;
 }
 
 
