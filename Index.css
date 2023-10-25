@@ -45,18 +45,40 @@ body{
     margin: 10px;
     padding: 10px;
     width: 260px;
+    height: 340px;
 }
 
 .card img{
-    width: 100%;
     height: 180px;
+    width: 100%;
+    /* object-fit: fill; */
+}
+
+.card h2{
+    text-decoration: none;
 }
 
 .resturantList{
     display: flex;
     flex-wrap: wrap;
+    width: 100vw;
+    justify-content: center;
 }
 
+
+/* ++++++++ Search Bar ++++++++++++ */
+.searchBarContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.searchBarContainer input{
+    margin: 3px 10px 0px 0px;
+}
+
+
+
+/* +++++++++++++Shimmer Effect++++++++++++ */
 .shimmerCard{
     width: 260px;
     height: 300px;
@@ -93,10 +115,12 @@ body{
     width: 100vw;
     height: 100vh;
     position: absolute;
+    overflow: hidden;
+    object-fit: cover;
     z-index: -10;
     top: 0;
     position: fixed;
-    filter: blur(2px) saturate(2) contrast(130%);
+    filter: blur(4px) saturate(1.2) contrast(80%);
 }
 
 .resturantMenuMainContainer{
@@ -112,13 +136,17 @@ body{
     justify-content: center;
     align-items: center;
     margin: 10px;
-    /* width: 800px; */
+    padding: 20px;
     background-color: rgba(255, 255, 255, 0.281);
     border-radius: 20px;
+    width: 800px;
+    height: 550px;
 }
 
 .resturantMainDetailContainer img{
-    width:400px;
+    margin: 5px;
+    height: 100%;
+    overflow: hidden;
     border-radius: 20px;
     border: 2px solid black;
     margin-right: 20px;
@@ -144,6 +172,7 @@ body{
 .menuItems Img{
     display: flex;
     align-items: center;
+    border: 3px solid rgb(29, 29, 29);
     height: 240px;
     margin: 15px;
     border-radius: 12px;
@@ -156,5 +185,22 @@ body{
     padding: 0px 15px 15px;
 }
 
+/* ----------------------------------------------------Error */
+.error{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
 
+.error h1{
+    margin: 5px;
+    font-size: 42px;
+}
+
+.error h2{
+    margin: 5px;
+    font-size: 42px;
+}
 /* ----------------------------------------------------Footer */

@@ -6,20 +6,20 @@ import Shimmer_UI from "./Shimmer_UI";
 
 const ResturantMenu = () => {
   const [resturant, setResturant] = useState([]);
-  const [resturantMenuItems, setResturantMenuItems] = useState([]);
+  const [resturantMenuItems, setResturantMenuItems] = useState([null]);
   const [loading, setLoading] = useState(true);
   const params = useParams();
   const { resid } = params;
-
   useEffect(() => {
     getResturantInfo();
   }, []);
 
-  // we are calling two use state in one fuction that swhy its giving the error, to fix either call one obj and update both of them 
   async function getResturantInfo() {
     try {
       const data = await fetch(
-        "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.6286706&lng=77.36402570000001&restaurantId=142444&catalog_qa=undefined&submitAction=ENTER"
+        `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.6286706&lng=77.36402570000001&restaurantId=` +
+          resid +
+          `&catalog_qa=undefined&submitAction=ENTER`
       );
       const json = await data.json();
       setResturant(json?.data?.cards[0]?.card?.card?.info);
@@ -42,29 +42,35 @@ const ResturantMenu = () => {
 
   return (
     <>
-    <div className="resturantMenuMainContainer">
-    <img className="itemImageInBg" src={IMG_CDN_URL + resturant?.cloudinaryImageId}></img>
-      <div className="resturantMainDetailContainer">
-        <img src={IMG_CDN_URL + resturant?.cloudinaryImageId}></img>
+      {loading ? (
+        <Shimmer_UI />
+      ) : (
         <div>
-          <h1>{resturant.name}</h1>
-          <h3>{resturant.areaName}, {resturant.city}</h3>
-          <h3>{resturant.costForTwoMessage}</h3>
-          <h4>{resturant.totalRatingsString}</h4>
-          <h1>Resturant id :{resid}</h1>
+          <div className="resturantMenuMainContainer">
+            <img
+              className="itemImageInBg"
+              src={IMG_CDN_URL + resturant?.cloudinaryImageId}
+            ></img>
+            <div className="resturantMainDetailContainer">
+              <img src={IMG_CDN_URL + resturant?.cloudinaryImageId}></img>
+              <div>
+                <h1>{resturant.name}</h1>
+                <h3>
+                  {resturant.areaName}, {resturant.city}
+                </h3>
+                <h3>{resturant.costForTwoMessage}</h3>
+                <h4>{resturant.totalRatingsString}</h4>
+                <h1>Resturant id :{resid} </h1>
+              </div>
+            </div>
+            <div className="resturantMenuItemsContainer">
+              {resturantMenuItems.map((item, index) => {
+                return <ResturantItems {...item} key={item?.id && index} />;
+              })}
+            </div>
+          </div>
         </div>
-      </div>
-      <div className="resturantMenuItemsContainer">
-        {loading ? (
-          <Shimmer_UI/>
-        ) : (
-          resturantMenuItems.map((item, index) =>  {
-            return (<ResturantItems {...item} key={item?.id && index} />)
-          })
-            )}
-      </div>
-          {resturantMenuItems.map((item) => console.log(item))}
-    </div>
+      )}
     </>
   );
 };
