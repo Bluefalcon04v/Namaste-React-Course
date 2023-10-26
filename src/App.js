@@ -1,4 +1,3 @@
-import React, { Children } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Headers";
 import Footer from "./components/Footer";
@@ -6,6 +5,7 @@ import Body from "./components/Body";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
+import Profile from "./components/Profile";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import ResturantMenu from "./components/ResturantMenu";
 
@@ -28,8 +28,14 @@ const appRouter = createBrowserRouter([
         element: <Body />
       },
       {
-        path: "/about",
-        element: <About />
+        path: "/about", // Giving the access to the Profile component using nested loop in the url
+        element: <About />,
+        children:[
+          {
+            path: "profile",
+            element: <Profile/>
+          }
+        ]
       },
       {
         path: "/contact",

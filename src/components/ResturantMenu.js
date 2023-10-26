@@ -6,7 +6,7 @@ import Shimmer_UI from "./Shimmer_UI";
 
 const ResturantMenu = () => {
   const [resturant, setResturant] = useState([]);
-  const [resturantMenuItems, setResturantMenuItems] = useState([null]);
+  const [resturantMenuItems, setResturantMenuItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const params = useParams();
   const { resid } = params;
@@ -17,9 +17,7 @@ const ResturantMenu = () => {
   async function getResturantInfo() {
     try {
       const data = await fetch(
-        `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.6286706&lng=77.36402570000001&restaurantId=` +
-          resid +
-          `&catalog_qa=undefined&submitAction=ENTER`
+        `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.6286706&lng=77.36402570000001&restaurantId=${resid}&catalog_qa=undefined&submitAction=ENTER`
       );
       const json = await data.json();
       setResturant(json?.data?.cards[0]?.card?.card?.info);
