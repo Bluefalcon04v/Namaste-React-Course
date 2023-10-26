@@ -28,7 +28,7 @@ const appRouter = createBrowserRouter([
         element: <Body />
       },
       {
-        path: "/about", // Giving the access to the Profile component using nested loop in the url
+        path: "/about",
         element: <About />,
         children:[
           {
