@@ -7,7 +7,7 @@ class UserClass extends React.Component {
             User Class Component
             <h3>Name = {this.props.name}</h3>
             <h3>Occupation = {this.props.occupation}</h3>
-            <h3>City = {this.props.city}</h3>
+            <h3>City Name = {this.props.city}</h3>
           </div>    
         )
     }
