@@ -3,34 +3,59 @@ import React from "react";
 class UserClass extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {  // Setting multiple States
-      value: 0,
-      value2: 2,
+    this.state = {
+      userInfo: {
+        avatar_url: "image",
+        name: "Default",
+        company: "Default-Company",
+      }
     };
+    console.log("Constructor")
   }
+
+  async componentDidMount(){
+    const data = await fetch("  https://api.github.com/users/Bluefalcon04v")
+    const json = await data.json();
+    console.log(json)
+    this.setState({
+      userInfo: json
+    })
+  }
+
+  componentDidUpdate(){
+    console.log("Component is Updated")
+  }
+
+  componentWillUnmount(){
+    console.log("Component is Unmounted")
+  }
+
   render() {
     return (
       <div className="userCard">
-        User Class Component
-        <h3>Name = {this.props.name}</h3>
-        <h3>Occupation = {this.props.occupation}</h3>
-        <h3>City Name = {this.props.city}</h3>
-        <p>{this.state.value}</p>
-        <p>{this.state.value2}</p>
-
-        <button
-          onClick={() => {
-            this.setState({
-              value: 1,
-              value2: 7,
-            });
-          }}
-        >
-          Class Component
-        </button>
+        {console.log("Render")}
+        User Class Component  
+        <img src={this.state.userInfo.avatar_url} alt="Image"/>
+        <p>{this.state.userInfo.name}</p>
+        <p>{this.state.userInfo.company}</p>
       </div>
     );
   }
 }
 
 export default UserClass;
+
+
+/*
+The Way all methods are being called 
+Constructor
+Render 
+
+Api calls 
+then render with new datas 
+
+Component is updated
+
+Component is unmounted
+
+*/
