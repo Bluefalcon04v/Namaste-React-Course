@@ -1,8 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const User = (props) => {
 const [value, setValue] = useState(0)
 const [value2, setValue2] = useState(2)
+
+useEffect(() => {
+  const timeRender = setInterval(() => {
+    console.log("hello world!")
+  }, 1000)
+
+  return() =>{  // This will make the component unmount when we change the components 
+    clearInterval(timeRender)
+    console.log("Unmounted");
+  }
+  
+  
+})
   return (
     <>
       <div className="userCard">

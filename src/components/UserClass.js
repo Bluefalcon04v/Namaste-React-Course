@@ -10,13 +10,11 @@ class UserClass extends React.Component {
         company: "Default-Company",
       }
     };
-    console.log("Constructor")
   }
 
   async componentDidMount(){
     const data = await fetch("  https://api.github.com/users/Bluefalcon04v")
     const json = await data.json();
-    console.log(json)
     this.setState({
       userInfo: json
     })
@@ -33,7 +31,6 @@ class UserClass extends React.Component {
   render() {
     return (
       <div className="userCard">
-        {console.log("Render")}
         User Class Component  
         <img src={this.state.userInfo.avatar_url} alt="Image"/>
         <p>{this.state.userInfo.name}</p>
@@ -44,18 +41,3 @@ class UserClass extends React.Component {
 }
 
 export default UserClass;
-
-
-/*
-The Way all methods are being called 
-Constructor
-Render 
-
-Api calls 
-then render with new datas 
-
-Component is updated
-
-Component is unmounted
-
-*/
