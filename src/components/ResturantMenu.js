@@ -3,10 +3,13 @@ import { useParams } from "react-router-dom";
 import { IMG_CDN_URL } from "../config";
 import ResturantItems from "./ResturantItems";
 import Shimmer_UI from "./Shimmer_UI";
+import useResturantInfo from "../utils/useResturantInfo";
 
 const ResturantMenu = () => {
-  const [resturant, setResturant] = useState([]);
-  const [resturantMenuItems, setResturantMenuItems] = useState([]);
+  
+
+  const [resturant, setResturant] = useState([null]);
+  const [resturantMenuItems, setResturantMenuItems] = useState([null]);
   const [loading, setLoading] = useState(true);
   const params = useParams();
   const { resid } = params;
