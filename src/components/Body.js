@@ -4,6 +4,7 @@ import Shimmer_UI from "./Shimmer_UI";
 import { Link } from "react-router-dom";
 import { filterData } from "../utils/helper";
 import { SWIGGY_RESTAURANTS_LISTS } from "../config";
+import useOnline from "../utils/useOnline";
 
 
 const Body = () => {
@@ -13,8 +14,14 @@ const Body = () => {
 
   useEffect(() => {
     getResturantListData();
-
   }, []);
+
+
+  const offline = useOnline();
+
+  if(!offline){
+    return <h1> Offline, please check your connection</h1>
+  }
 
   async function getResturantListData() {
     try {

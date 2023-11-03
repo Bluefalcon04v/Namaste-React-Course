@@ -8,14 +8,21 @@ import Error from "./components/Error";
 import Profile from "./components/Profile";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import ResturantMenu from "./components/ResturantMenu";
+import useOnline from "./utils/useOnline";
 
-const AppComponent = () => (
-  <>
-    <Header />
-    <Outlet /> 
-    <Footer />
-  </>
-);
+const AppComponent = () => {
+  const offline = useOnline();
+  if (!offline) {
+    return <h1> Offline, please check your connection</h1>;
+  }
+  return (
+    <>
+      <Header />
+      <Outlet />
+      <Footer />
+    </>
+  );
+};
 
 const appRouter = createBrowserRouter([
   {
@@ -25,29 +32,29 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Body />
+        element: <Body />,
       },
       {
         path: "/about",
         element: <About />,
-        children:[
+        children: [
           {
             path: "profile",
-            element: <Profile/>
-          }
-        ]
+            element: <Profile />,
+          },
+        ],
       },
       {
         path: "/contact",
-        element: <Contact />
+        element: <Contact />,
       },
       {
         path: "/resturantId/:resid",
-        element: <ResturantMenu />
-      }
+        element: <ResturantMenu />,
+      },
     ],
-  }])
+  },
+]);
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
-
 root.render(<RouterProvider router={appRouter} />);

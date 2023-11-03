@@ -14,6 +14,10 @@ const ResturantMenu = () => {
     getResturantInfo();
   }, []);
 
+
+// ! To DO --- Implement getResturantInfo as a custom hook
+// ! To DO --- Implement getResturantListData as a custom hook
+
   async function getResturantInfo() {
     try {
       const data = await fetch(
@@ -38,7 +42,6 @@ const ResturantMenu = () => {
   }
 
   const resturant = useResturantInfo(resid)
-  // const resturantMenuItems = useResturantMenuItems(resid)
   return (
     <>
       {loading ? (
