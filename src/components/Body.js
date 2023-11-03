@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import Shimmer_UI from "./Shimmer_UI";
 import { Link } from "react-router-dom";
 import { filterData } from "../utils/helper";
+import { SWIGGY_RESTAURANTS_LISTS } from "../config";
+import useOnline from "../utils/useOnline";
 
 
 const Body = () => {
@@ -12,14 +14,19 @@ const Body = () => {
 
   useEffect(() => {
     getResturantListData();
-
   }, []);
+
+
+  const offline = useOnline();
+
+  if(!offline){
+    return <h1> Offline, please check your connection</h1>
+  }
 
   async function getResturantListData() {
     try {
       const data = await fetch(
-        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6286706&lng=77.36402570000001&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-      );
+        SWIGGY_RESTAURANTS_LISTS);
       const JSON = await data.json();
       setAllResturants(
         JSON?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
