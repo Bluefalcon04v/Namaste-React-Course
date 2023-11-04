@@ -1,15 +1,16 @@
+import { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Headers";
 import Footer from "./components/Footer";
 import Body from "./components/Body";
-import About from "./components/About";
-import Contact from "./components/Contact";
 import Error from "./components/Error";
 import Profile from "./components/Profile";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import ResturantMenu from "./components/ResturantMenu";
 import useOnline from "./utils/useOnline";
-
+import Shimmer_UI from "./components/Shimmer_UI";
+const About = lazy(() => import("./components/About"));
+const Contact = lazy(() => import("./components/Contact"));
 const AppComponent = () => {
   const offline = useOnline();
   if (!offline) {
@@ -36,7 +37,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About />,
+        element: (
+          <Suspense fallback={<Shimmer_UI/>}>
+            <About />
+          </Suspense>
+        ),
         children: [
           {
             path: "profile",
@@ -46,7 +51,14 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/contact",
-        element: <Contact />,
+        element:  (
+          <Suspense fallback={<Shimmer_UI/>}>
+            <Contact />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/cart"
       },
       {
         path: "/resturantId/:resid",
