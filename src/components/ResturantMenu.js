@@ -17,6 +17,7 @@ const ResturantMenu = () => {
 
 // ! To DO --- Implement getResturantInfo as a custom hook
 // ! To DO --- Implement getResturantListData as a custom hook
+// ! To DO --- Make the Offline Page UI
 
   async function getResturantInfo() {
     try {

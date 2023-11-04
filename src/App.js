@@ -13,7 +13,7 @@ import useOnline from "./utils/useOnline";
 const AppComponent = () => {
   const offline = useOnline();
   if (!offline) {
-    return <h1> Offline, please check your connection</h1>;
+    return <h1> Looks like you're Offline, please check your connection</h1>;
   }
   return (
     <>
