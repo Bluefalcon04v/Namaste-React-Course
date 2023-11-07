@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Button, Divider, Flex, Image, List } from "antd";
 
 const Title = () => (
   <a href="/">
-    <img
-      className="logo"
+    <Image preview={false} style={{width:"140px", height:"auto"}}
       src="https://etimg.etb2bimg.com/photo/63298781.cms"
       alt="logo Image"
     />
@@ -16,16 +16,18 @@ const Header = () => {
   const [islogedIn, setIsLogedIn] = useState(true)
 
   return (
-    <div className="listContainer">
+    <>
+    <Flex gap="middle" style={{margin:"0 20px"}} horizontal="true" justify="space-between" align="center" >
       <Title />
-      <ul>
-        <li> <Link to={"/"}>Home</Link></li>
-        <li> <Link to={"/about"}>About</Link></li>
-        <li> <Link to={"/contact"}>Contact</Link></li>
-        <li> <Link to={"/cart"}>Cart</Link></li>
-      </ul> 
-      {islogedIn ? <button onClick={()=> setIsLogedIn(false) }>Logout</button> : <button onClick={()=> setIsLogedIn(true)}>Login</button>}
-    </div>
+        <List.Item style={{display:"flex", alignItems:"center", padding:"20px", gap:"40px"}}>
+          <List> <Link to={"/"}>Home</Link></List>
+          <List> <Link to={"/about"}>About</Link></List>
+          <List> <Link to={"/contact"}>Contact</Link></List>
+          <List> <Link to={"/cart"}>Cart</Link></List>
+        </List.Item>
+      {islogedIn? <Button style={{width:"80px"}} onClick={()=> setIsLogedIn(false) }>Logout</Button> : <Button type="primary" style={{width:"80px"}} onClick={()=> setIsLogedIn(true)}>Login</Button>}
+    </Flex>
+    </>
   )
 };
 

@@ -7,6 +7,7 @@ import Error from "./components/Error";
 import Profile from "./components/Profile";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import ResturantMenu from "./components/ResturantMenu";
+import { ConfigProvider } from "antd";
 import useOnline from "./utils/useOnline";
 import Shimmer_UI from "./components/Shimmer_UI";
 const About = lazy(() => import("./components/About"));
@@ -18,9 +19,28 @@ const AppComponent = () => {
   }
   return (
     <>
+        <ConfigProvider
+      theme={{
+        components: {
+          // ? Rust Color BC3908 / primary color
+          // ? Carrot Color F9A03F
+          // ? White BG Color EDF2F4
+          // ? Black Color 0C120C
+          Button: {
+            colorPrimary: '#BC3908',
+            algorithm: true, 
+          },
+          Input: {
+            colorPrimary: 'green',
+            algorithm: true,
+          }
+        },
+      }}
+    >
       <Header />
       <Outlet />
       <Footer />
+    </ConfigProvider>
     </>
   );
 };

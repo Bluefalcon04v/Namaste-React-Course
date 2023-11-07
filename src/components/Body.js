@@ -4,6 +4,7 @@ import Shimmer_UI from "./Shimmer_UI";
 import { Link } from "react-router-dom";
 import { filterData } from "../utils/helper";
 import { SWIGGY_RESTAURANTS_LISTS } from "../config";
+import { Card, Flex } from "antd";
 
 const Body = () => {
   const [allResturants, setAllResturants] = useState([]);
@@ -15,8 +16,7 @@ const Body = () => {
   }, []);
   async function getResturantListData() {
     try {
-      const data = await fetch(
-        SWIGGY_RESTAURANTS_LISTS);
+      const data = await fetch(SWIGGY_RESTAURANTS_LISTS);
       const JSON = await data.json();
       setAllResturants(
         JSON?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
@@ -56,16 +56,15 @@ const Body = () => {
           Search
         </button>
       </div>
-
-      <div className="resturantList">
+      <Flex wrap="wrap" gap="small">
         {filteredResturants.map((value) => {
           return (
-            <Link to={"/resturantId/" + value.info.id} key={value.info.id}>
-              <ResturantCard {...value.info} />
-            </Link>
+              <Link to={"/resturantId/" + value.info.id} key={value.info.id}>
+                <ResturantCard {...value.info} />
+              </Link>
           );
         })}
-      </div>
+      </Flex>
     </>
   );
 };
