@@ -1,15 +1,14 @@
-*{
+html, body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: #fff;
 }
+#root {
+    /* padding: 24px; */
+  }
+/*
 
-body{
-    background-color: rgb(253, 247, 238);
-}
-
-
-/* ----------------------------------------------------Header */
 .logo{
     width: 120px;
 }
@@ -17,6 +16,7 @@ body{
 .listContainer{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: white;
     padding: 0 20px;
 }
@@ -38,7 +38,6 @@ body{
     text-decoration-line: none;
 }
 
-/* ----------------------------------------------------Body */
 .card{
     border: 2px solid black;
     border-radius: 15px;
@@ -51,7 +50,6 @@ body{
 .card img{
     height: 180px;
     width: 100%;
-    /* object-fit: fill; */
 }
 
 .card h2{
@@ -66,7 +64,6 @@ body{
 }
 
 
-/* ++++++++ Search Bar ++++++++++++ */
 .searchBarContainer{
     display: flex;
     justify-content: center;
@@ -78,7 +75,6 @@ body{
 
 
 
-/* +++++++++++++Shimmer Effect++++++++++++ */
 .shimmerCard{
     width: 260px;
     height: 300px;
@@ -110,7 +106,6 @@ body{
 }
 
 
-/* +++++++++ MENU ITEMS +++++++++ */
 .itemImageInBg{
     width: 100vw;
     height: 100vh;
@@ -185,7 +180,6 @@ body{
     padding: 0px 15px 15px;
 }
 
-/* ----------------------------------------------------Error */
 .error{
     display: flex;
     justify-content: center;
@@ -207,12 +201,11 @@ body{
 
 
 
-/* ----------------------------------------------------User Card */
 .userCard{
     margin: 10px;
     width: 200px;
     height: 200px;
     border: 2px solid #ccc;
-}
+} */
 
-/* ----------------------------------------------------Footer */
+
