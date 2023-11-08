@@ -1,14 +1,32 @@
-html, body{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: #fff;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #fff;
 }
-#root {
-    /* padding: 24px; */
-  }
-/*
 
+.custom {
+  .ant-typography {
+    padding: 0;
+    margin: 0;
+  }
+  .ant-typography-secondary {
+    margin: 0;
+  }
+}
+
+.itemImageInBg{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    object-fit: cover;
+    top: 0;
+    position: fixed;
+    filter: blur(4px) saturate(1.2) contrast(80%);
+}
+
+/*
 .logo{
     width: 120px;
 }
@@ -207,5 +225,3 @@ html, body{
     height: 200px;
     border: 2px solid #ccc;
 } */
-
-

@@ -17,7 +17,7 @@ const Header = () => {
 
   return (
     <>
-    <Flex gap="middle" style={{margin:"0 20px"}} horizontal="true" justify="space-between" align="center" >
+    <Flex gap="middle" style={{padding:"0 20px", position:"relative", zIndex:"1", background:"white"}} horizontal="true" justify="space-between" align="center" >
       <Title />
         <List.Item style={{display:"flex", alignItems:"center", padding:"20px", gap:"40px"}}>
           <List> <Link to={"/"}>Home</Link></List>
