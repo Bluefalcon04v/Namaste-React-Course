@@ -4,13 +4,13 @@ import Shimmer_UI from "./Shimmer_UI";
 import { Link } from "react-router-dom";
 import { filterData } from "../utils/helper";
 import { SWIGGY_RESTAURANTS_LISTS } from "../config";
-import { Card, Flex } from "antd";
+import {Input, Button, Flex, Space } from "antd";
 
 const Body = () => {
   const [allResturants, setAllResturants] = useState([]);
   const [filteredResturants, setFilteredResturants] = useState([]);
   const [searchText, setSearchText] = useState("");
-
+  const { Search } = Input;
   useEffect(() => {
     getResturantListData();
   }, []);
@@ -36,35 +36,32 @@ const Body = () => {
     <Shimmer_UI />
   ) : (
     <>
-      <div className="searchBarContainer">
-        <input
-          type="text"
-          className="searchInput"
-          placeholder="Search"
-          value={searchText || ""}
-          onChange={(e) => {
-            setSearchText(e.target.value);
-          }}
-        ></input>
-        <button
-          className="searchButton"
-          onClick={() => {
-            const data = filterData(searchText, allResturants);
-            setFilteredResturants(data);
-          }}
-        >
-          Search
-        </button>
-      </div>
-      <Flex wrap="wrap" gap="small">
-        {filteredResturants.map((value) => {
-          return (
+      <Space direction="vertical">
+        <Space direction="horizontal">
+          <Search
+            placeholder="input search text"
+            allowClear
+            enterButton="Search"
+            onChange={(e)=>{
+              setSearchText(e.target.value)
+            }}
+            size="small"
+            onSearch={() => {
+              const data = filterData(searchText, allResturants);
+              setFilteredResturants(data);
+            }}
+          />
+        </Space>
+        <Flex wrap="wrap" gap="middle" justify="center">
+          {filteredResturants.map((value) => {
+            return (
               <Link to={"/resturantId/" + value.info.id} key={value.info.id}>
                 <ResturantCard {...value.info} />
               </Link>
-          );
-        })}
-      </Flex>
+            );
+          })}
+        </Flex>
+      </Space>
     </>
   );
 };

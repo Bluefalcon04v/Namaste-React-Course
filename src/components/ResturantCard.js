@@ -1,25 +1,27 @@
-import { Card } from "antd";
+import { Card, Space, Typography } from "antd";
 import { IMG_CDN_URL } from "../config";
 
+const {Title, Text} =Typography;
 const ResturantCard = ({ name, cuisines, cloudinaryImageId, avgRating }) => {
   return (
     <Card
       bordered
-      color="red"
       hoverable
-      style={{ width: "320px", height:"420px" , backgroundColor:"red"}}
+      style={{ width: "320px", height:"420px"}}
     >
       <img
-        style={{width:"100%", height:"200px", borderRadius:"10px"}}
+        style={{width:"100%", height:"240px", borderRadius:"10px" }}
         src={
             IMG_CDN_URL +
           cloudinaryImageId
         }
         alt="Image"
       />
-      <h2>{name}</h2>
-      <h4>{cuisines.join(", ")}</h4>
-      <h5>{avgRating} Stars</h5>
+      <Space direction="vertical" className="custom">
+      <Title level={5}>{name}</Title>
+      <Text type="secondary">{cuisines.join(", ")}</Text>
+      <Text strong>{avgRating} Stars</Text>
+      </Space>
     </Card>
   );
 };

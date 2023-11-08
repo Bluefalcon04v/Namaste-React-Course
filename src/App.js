@@ -31,7 +31,7 @@ const AppComponent = () => {
             algorithm: true, 
           },
           Input: {
-            colorPrimary: 'green',
+            colorPrimary: 'blue',
             algorithm: true,
           }
         },

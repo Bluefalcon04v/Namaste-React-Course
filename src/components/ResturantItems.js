@@ -1,16 +1,23 @@
+import { Card, Space, Typography } from "antd";
 import { IMG_CDN_URL } from "../config";
 
+const {Title, Text} = Typography
 const ResturantItems = ({ name, category, description, imageId, price }) => {
   return (
-    <div className="menuItems">
-      <img src={IMG_CDN_URL + imageId} alt="Image" />
-      <div className="menuItemsContent">
-        <h3>{name}</h3>
-        <p>{category}</p>
-        <p>{description}</p>
-        <p>&#8377; {price / 100}</p>
-      </div>
-    </div>
+    <Card
+      bordered
+      color="white"
+      hoverable
+      style={{ width: "320px", maxHeight:"fit-content", minHeight: "400px",}}
+    >
+      <img style={{width:"100%", height:"240px", borderRadius:"10px" }} src={IMG_CDN_URL + imageId} alt="Image" />
+      <Space direction="vertical" >
+        <Title level={5}>{name}</Title>
+        <Text >{category}</Text>
+        <Text type="secondary">{description}</Text>
+        <Text strong>&#8377; {price / 100}</Text>
+      </Space>
+    </Card>
   );
 };
 
