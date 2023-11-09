@@ -7,7 +7,7 @@ import Error from "./components/Error";
 import Profile from "./components/Profile";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import ResturantMenu from "./components/ResturantMenu";
-import { ConfigProvider } from "antd";
+import { ConfigProvider, theme } from "antd";
 import useOnline from "./utils/useOnline";
 import Shimmer_UI from "./components/Shimmer_UI";
 const About = lazy(() => import("./components/About"));
@@ -19,28 +19,35 @@ const AppComponent = () => {
   }
   return (
     <>
-        <ConfigProvider
-      theme={{
-        components: {
-          // ? Rust Color BC3908 / primary color
-          // ? Carrot Color 2B2B2B
-          // ? White BG Color EDF2F4
-          // ? Black Color 0C120C
-          Button: {
-            colorPrimary: '#BC3908',
-            algorithm: true, 
+      <ConfigProvider
+        theme={{
+          token: {  
+            colorBgContainer: '#EDF2F4',
+            borderRadius:10
           },
-          Input: {
-            colorPrimary: 'blue',
-            algorithm: true,
-          }
-        },
-      }}
-    >
-      <Header />
-      <Outlet />
-      <Footer />
-    </ConfigProvider>
+          components: {
+            // ? Rust Color BC3908 / primary color
+            // ? Carrot Color 2B2B2B
+            // ? White BG Color EDF2F4
+            // ? Black Color 0C120C
+            Button: {
+              colorPrimary: "#BC3908",
+              algorithm: true,
+            },
+            Input: {
+              colorPrimary: "#BC3908",
+              algorithm: true,
+            },
+            Link: {
+              colorPrimary: "black",
+            },
+          },
+        }}
+      >
+        <Header />
+        <Outlet />
+        <Footer />
+      </ConfigProvider>
     </>
   );
 };
@@ -58,7 +65,7 @@ const appRouter = createBrowserRouter([
       {
         path: "/about",
         element: (
-          <Suspense fallback={<Shimmer_UI/>}>
+          <Suspense fallback={<Shimmer_UI />}>
             <About />
           </Suspense>
         ),
@@ -71,14 +78,14 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/contact",
-        element:  (
-          <Suspense fallback={<Shimmer_UI/>}>
+        element: (
+          <Suspense fallback={<Shimmer_UI />}>
             <Contact />
           </Suspense>
         ),
       },
       {
-        path: "/cart"
+        path: "/cart",
       },
       {
         path: "/resturantId/:resid",

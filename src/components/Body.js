@@ -4,7 +4,7 @@ import Shimmer_UI from "./Shimmer_UI";
 import { Link } from "react-router-dom";
 import { filterData } from "../utils/helper";
 import { SWIGGY_RESTAURANTS_LISTS } from "../config";
-import {Input, Button, Flex, Space } from "antd";
+import { Input, Button, Flex, Space } from "antd";
 
 const Body = () => {
   const [allResturants, setAllResturants] = useState([]);
@@ -36,19 +36,26 @@ const Body = () => {
     <Shimmer_UI />
   ) : (
     <>
-      <Space direction="vertical" style={{width:"100%"}}>
-        <Space direction="horizontal" style={{display:"flex", justifyContent:"center"}}>
+      <Space direction="vertical" style={{ width: "100%" }}>
+        <Space
+          direction="horizontal"
+          style={{ display: "flex", justifyContent: "center" }}
+        >
           <Search
-            placeholder="input search text"
+            placeholder="input search restaurants"
             allowClear
             enterButton="Search"
-            onChange={(e)=>{
-              setSearchText(e.target.value)
+            onChange={(e) => {
+              setSearchText(e.target.value);
             }}
             size="medium"
             onSearch={() => {
+              // const data = filterData(searchText, allResturants);
+              // setFilteredResturants(data);
               const data = filterData(searchText, allResturants);
-              setFilteredResturants(data);
+              {
+                data? (setFilteredResturants(data)) : (<div>Hello</div>);
+              }
             }}
           />
         </Space>
