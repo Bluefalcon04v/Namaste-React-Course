@@ -36,8 +36,8 @@ const Body = () => {
     <Shimmer_UI />
   ) : (
     <>
-      <Space direction="vertical">
-        <Space direction="horizontal">
+      <Space direction="vertical" style={{width:"100%"}}>
+        <Space direction="horizontal" style={{display:"flex", justifyContent:"center"}}>
           <Search
             placeholder="input search text"
             allowClear
@@ -45,7 +45,7 @@ const Body = () => {
             onChange={(e)=>{
               setSearchText(e.target.value)
             }}
-            size="small"
+            size="medium"
             onSearch={() => {
               const data = filterData(searchText, allResturants);
               setFilteredResturants(data);

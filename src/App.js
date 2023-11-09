@@ -23,7 +23,7 @@ const AppComponent = () => {
       theme={{
         components: {
           // ? Rust Color BC3908 / primary color
-          // ? Carrot Color F9A03F
+          // ? Carrot Color 2B2B2B
           // ? White BG Color EDF2F4
           // ? Black Color 0C120C
           Button: {
