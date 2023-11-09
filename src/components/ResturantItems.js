@@ -5,7 +5,8 @@ const {Title, Text} = Typography
 const ResturantItems = ({ name, category, description, imageId, price }) => {
   return (
     <Card
-      bordered
+      // bordered
+      bordered={{ backgroundColor: '#a9bbff' }}
       color="white"
       hoverable
       style={{ width: "320px", maxHeight:"fit-content", minHeight: "400px",}}
