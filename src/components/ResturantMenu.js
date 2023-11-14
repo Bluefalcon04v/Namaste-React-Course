@@ -53,7 +53,7 @@ const ResturantMenu = () => {
         <Shimmer_UI />
       ) : (
         <>
-          <div >
+          <div>
             <img
               className="itemImageInBg"
               src={IMG_CDN_URL + resturant?.cloudinaryImageId}
@@ -61,17 +61,23 @@ const ResturantMenu = () => {
             <Flex justify="center" align="center">
               <Space
                 hoverable="false"
-                style={{ margin: "20px", height:"auto", position: "relative", background:"white", borderRadius:"12px"}}
+                style={{
+                  margin: "20px",
+                  height: "auto",
+                  position: "relative",
+                  background: "white",
+                  borderRadius: "12px",
+                }}
               >
                 <img
                   style={{
                     width: "100%",
-                    // height: "100% ",
-                    borderRadius: "10px",
+                    padding: "10px",
+                    borderRadius: "20px",
                   }}
                   src={IMG_CDN_URL + resturant?.cloudinaryImageId}
                 />
-                <div className="custom" style={{ margin: "10px" }}>
+                <div className="custom" style={{ margin: "20px" }}>
                   <Title level={1}>{resturant?.name}</Title>
                   <Title
                     style={{ marginTop: "0px" }}
