@@ -52,9 +52,12 @@ const Body = () => {
             onSearch={() => {
               // const data = filterData(searchText, allResturants);
               // setFilteredResturants(data);
-              const data = filterData(searchText, allResturants);
               {
-                data? (setFilteredResturants(data)) : (<div>Hello</div>);
+                filterData(searchText, allResturants) ? (
+                  setFilteredResturants(filterData(searchText, allResturants))
+                ) : (
+                    console.log(first)
+                );
               }
             }}
           />

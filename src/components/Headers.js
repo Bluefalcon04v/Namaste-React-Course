@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Button, Divider, Flex, Image, List } from "antd";
+import { Button, Flex, Image, List } from "antd";
 
 const Title = () => (
-  <a href="/">
+  <Link to="/">
     <Image
       preview={false}
       style={{ width: "140px", height: "auto" }}
       src="https://etimg.etb2bimg.com/photo/63298781.cms"
       alt="logo Image"
     />
-  </a>
+  </Link>
 );
 
 const Header = () => {
