@@ -6,6 +6,17 @@ body {
   background-color: #fff;
 }
 
+ /* 
+ ? Rust Color BC3908 / primary color
+ ? Carrot Color 2B2B2B
+ ? White BG Color EDF2F4
+ ? Black Color 0C120C 
+ */
+
+:root{
+    --Card-Color: #fafafa;
+    --Black-Color: #0C120C;
+}
 .custom {
   .ant-typography {
     padding: 0;
@@ -14,6 +25,10 @@ body {
   .ant-typography-secondary {
     margin: 0;
   }
+.ant-card-body:hover {
+    /* background: #e0e0e0; */
+    /* border-color: green; */
+}
 }
 
 .itemImageInBg{
@@ -23,8 +38,18 @@ body {
     object-fit: cover;
     top: 0;
     position: fixed;
-    filter: blur(4px) saturate(1.2) contrast(80%);
+    filter: blur(6px) saturate(1.2) contrast(80%);
 }
+
+/* .ant-btn-primary {
+    background: #fff;
+    border-color: black;
+}
+
+.ant-btn-primary:hover {
+    background: rgb(33, 214, 33);
+    border-color: yellow;
+} */
 
 /*
 .logo{

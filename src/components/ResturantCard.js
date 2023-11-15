@@ -1,18 +1,26 @@
 import { Card, Space, Typography } from "antd";
-import { IMG_CDN_URL, NOT_FOUND_IMAGE_URL} from "../config";
+import { IMG_CDN_URL, NOT_FOUND_IMAGE_URL } from "../config";
 
 const { Title, Text } = Typography;
 const ResturantCard = ({ name, cuisines, cloudinaryImageId, avgRating }) => {
   return (
-    <Card bordered hoverable style={{ width: "320px", height: "420px" }}>
+    <Card
+      className="custom"
+      bordered
+      hoverable
+      style={{
+        backgroundColor: "var(--Card-Color)",
+        width: "320px",
+        height: "420px",
+        border: "2.2px solid black",
+      }}
+    >
       <img
         style={{ width: "100%", height: "240px", borderRadius: "10px" }}
         src={IMG_CDN_URL + cloudinaryImageId}
         alt="Image"
         onError={(e) => {
-          (e.target.src =
-            NOT_FOUND_IMAGE_URL),
-            console.log(e.target);
+          (e.target.src = NOT_FOUND_IMAGE_URL), console.log(e.target);
         }}
       />
       <Space direction="vertical" className="custom">
