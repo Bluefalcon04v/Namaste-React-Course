@@ -65,8 +65,10 @@ const ResturantMenu = () => {
                   margin: "20px",
                   height: "auto",
                   position: "relative",
-                  background: "white",
+                  backgroundColor: "white",
                   borderRadius: "12px",
+                  border: "2.2px solid var(--Black-Color)",
+
                 }}
               >
                 <img

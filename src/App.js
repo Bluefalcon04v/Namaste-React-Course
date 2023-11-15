@@ -26,10 +26,6 @@ const AppComponent = () => {
             borderRadius:10
           },
           components: {
-            // ? Rust Color BC3908 / primary color
-            // ? Carrot Color 2B2B2B
-            // ? White BG Color EDF2F4
-            // ? Black Color 0C120C
             Button: {
               colorPrimary: "#BC3908",
               algorithm: true,
@@ -41,6 +37,7 @@ const AppComponent = () => {
             Link: {
               colorPrimary: "black",
             },
+          
           },
         }}
       >
