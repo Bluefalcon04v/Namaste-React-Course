@@ -37,7 +37,6 @@ const AppComponent = () => {
             Link: {
               colorPrimary: "black",
             },
-          
           },
         }}
       >

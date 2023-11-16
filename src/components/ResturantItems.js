@@ -5,7 +5,6 @@ const { Title, Text } = Typography;
 const ResturantItems = ({ name, category, description, imageId, price }) => {
   return (
     <Card
-      // color="white !important"
       hoverable
       style={{
         width: "320px",
@@ -28,7 +27,7 @@ const ResturantItems = ({ name, category, description, imageId, price }) => {
         <Title level={5}>{name}</Title>
         <Text>{category}</Text>
         <Text type="secondary">{description}</Text>
-        <Text strong danger>&#8377; {price / 100}</Text>
+        <Text strong danger="true">&#8377; {price / 100}</Text>
       </Space>
     </Card>
   );

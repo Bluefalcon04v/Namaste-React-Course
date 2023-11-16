@@ -52,57 +52,54 @@ const ResturantMenu = () => {
       {loading ? (
         <Shimmer_UI />
       ) : (
-        <>
-          <div>
-            <img
-              className="itemImageInBg"
-              src={IMG_CDN_URL + resturant?.cloudinaryImageId}
-            ></img>
-            <Flex justify="center" align="center">
-              <Space
-                hoverable="false"
+        <div>
+          <img
+            className="itemImageInBg"
+            src={IMG_CDN_URL + resturant?.cloudinaryImageId}
+          ></img>
+          <Flex justify="center" align="center">
+            <Space
+              hoverable="false"
+              style={{
+                margin: "20px",
+                height: "auto",
+                position: "relative",
+                backgroundColor: "white",
+                borderRadius: "12px",
+                border: "2.2px solid var(--Black-Color)",
+              }}
+            >
+              <img
                 style={{
-                  margin: "20px",
-                  height: "auto",
-                  position: "relative",
-                  backgroundColor: "white",
-                  borderRadius: "12px",
-                  border: "2.2px solid var(--Black-Color)",
-
+                  width: "100%",
+                  padding: "10px",
+                  borderRadius: "20px",
                 }}
-              >
-                <img
-                  style={{
-                    width: "100%",
-                    padding: "10px",
-                    borderRadius: "20px",
-                  }}
-                  src={IMG_CDN_URL + resturant?.cloudinaryImageId}
-                />
-                <div className="custom" style={{ margin: "20px" }}>
-                  <Title level={1}>{resturant?.name}</Title>
-                  <Title
-                    style={{ marginTop: "0px" }}
-                    level={4}
-                    type="secondary"
-                    strong
-                  >
-                    {resturant?.areaName}, {resturant?.city}
-                  </Title>
-                  <Title style={{ marginTop: "0px" }} level={4} strong>
-                    {resturant?.costForTwoMessage}
-                  </Title>
-                  <Text strong>{resturant?.totalRatingsString}</Text>
-                </div>
-              </Space>
-            </Flex>
-            <Flex wrap="wrap" gap="middle" justify="center">
-              {resturantMenuItems.map((item, index) => {
-                return <ResturantItems {...item} key={item?.id && index} />;
-              })}
-            </Flex>
-          </div>
-        </>
+                src={IMG_CDN_URL + resturant?.cloudinaryImageId}
+              />
+              <div className="custom" style={{ margin: "20px" }}>
+                <Title level={1}>{resturant?.name}</Title>
+                <Title
+                  style={{ marginTop: "0px" }}
+                  level={4}
+                  type="secondary"
+                  strong
+                >
+                  {resturant?.areaName} {resturant?.city}
+                </Title>
+                <Title style={{ marginTop: "0px" }} level={4} strong>
+                  {resturant?.costForTwoMessage}
+                </Title>
+                <Text strong>{resturant?.totalRatingsString}</Text>
+              </div>
+            </Space>
+          </Flex>
+          <Flex wrap="wrap" gap="middle" justify="center">
+            {resturantMenuItems.map((item, index) => {
+              return <ResturantItems {...item} key={item?.id && index} />;
+            })}
+          </Flex>
+        </div>
       )}
     </>
   );
