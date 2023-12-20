@@ -28,7 +28,9 @@ const ResturantItems = ({ name, category, description, imageId, price }) => {
         <Title level={5}>{name}</Title>
         <Text>{category}</Text>
         <Text type="secondary">{description}</Text>
-        <Text strong danger>&#8377; {price / 100}</Text>
+        <Text strong danger>
+          &#8377; {price / 100}
+        </Text>
       </Space>
     </Card>
   );
