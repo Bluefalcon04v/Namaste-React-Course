@@ -1,8 +1,16 @@
+import { StarTwoTone } from "@ant-design/icons";
 import { Card, Space, Typography } from "antd";
 import { IMG_CDN_URL, NOT_FOUND_IMAGE_URL } from "../config";
 
 const { Title, Text } = Typography;
-const ResturantCard = ({ name, cuisines, cloudinaryImageId, avgRating, areaName }) => {
+const ResturantCard = ({
+  name,
+  cuisines,
+  cloudinaryImageId,
+  avgRating,
+  areaName,
+  sla,
+}) => {
   return (
     <Card
       className="custom"
@@ -27,7 +35,10 @@ const ResturantCard = ({ name, cuisines, cloudinaryImageId, avgRating, areaName 
         <Title level={5}>{name}</Title>
         <Text type="secondary">{cuisines.join(", ")}</Text>
         <Text type="secondary">Location - {areaName}</Text>
-        <Text strong>{avgRating} Stars</Text>
+        <Text strong>
+          <StarTwoTone /> 
+           {" "}{avgRating}. {sla.deliveryTime} mins
+        </Text>
       </Space>
     </Card>
   );
