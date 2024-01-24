@@ -19,19 +19,20 @@ const Body = () => {
       const data = await fetch(SWIGGY_RESTAURANTS_LISTS);
       const JSON = await data.json();
       setAllResturants(
-        JSON?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+        JSON?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants
-      );
+          );
       setFilteredResturants(
-        JSON?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+        JSON?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants
       );
     } catch (error) {
       console.log({ error });
     }
   }
-  if (!allResturants) return null;
+  console.log("allResturants",filteredResturants)
 
+  if (!allResturants) return null;
   return allResturants?.length === 0 ? (
     <Shimmer_UI />
   ) : (
@@ -41,8 +42,7 @@ const Body = () => {
           direction="horizontal"
           style={{ display: "flex", justifyContent: "center" }}
         >
-          <Search
-            placeholder="input search restaurants"
+          <Search placeholder="input search restaurants"
             allowClear
             enterButton="Search"
             onChange={(e) => {
@@ -57,12 +57,12 @@ const Body = () => {
                   setFilteredResturants(filterData(searchText, allResturants))
                 ) : (
                     console.log(first)
+                    
                 );
               }
-            }}
-          />
+          }}/>
         </Space>
-        <Flex wrap="wrap" gap="middle" justify="center">
+        <Flex wrap="wrap" gap="middle" justify="space-evenly" >
           {filteredResturants.map((value) => {
             return (
               <Link to={"/resturantId/" + value.info.id} key={value.info.id}>

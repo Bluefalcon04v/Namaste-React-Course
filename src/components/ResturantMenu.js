@@ -29,6 +29,7 @@ const ResturantMenu = () => {
         `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.6286706&lng=77.36402570000001&restaurantId=${resid}&catalog_qa=undefined&submitAction=ENTER`
       );
       const json = await data.json();
+      console.log(data)
       const allItems = [];
       json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.forEach(
         (res) => {
@@ -96,11 +97,13 @@ const ResturantMenu = () => {
                 </div>
               </Space>
             </Flex>
-            <Flex wrap="wrap" gap="middle" justify="center">
+            <div >
+            <Flex wrap="wrap" gap="middle" justify="center"  >
               {resturantMenuItems.map((item, index) => {
-                return <ResturantItems {...item} key={item?.id && index} />;
+                  return <ResturantItems {...item} key={item?.id && index}/>;
               })}
             </Flex>
+            </div>
           </div>
         </>
       )}
